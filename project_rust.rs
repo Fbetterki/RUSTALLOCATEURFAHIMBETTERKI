@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 
-
 use core::ptr;
 
 unsafe fn reserve_memory(size: usize) -> *mut u8 
@@ -38,3 +37,20 @@ unsafe fn reserve_memory(size: usize) -> *mut u8
     base_address as *mut u8
 }
 
+#[no_mangle]
+pub extern "C" fn main() -> ! {
+    unsafe {
+        let requested_size = 0x3000; 
+        let allocated_memory = reserve_memory(requested_size);
+
+        if allocated_memory.is_null() {
+            
+            loop {}
+        }
+
+        
+    }
+
+    
+    loop {}
+}
