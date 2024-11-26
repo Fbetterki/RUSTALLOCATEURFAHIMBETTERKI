@@ -18,6 +18,10 @@ unsafe fn reserve_memory(size: usize) -> *mut u8 {
     );
 
 
+    if base_address == 0 {
+        return ptr::null_mut(); 
+    }
+
 
 }
 
